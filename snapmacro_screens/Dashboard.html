@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#4e02b8",
+                    "secondary-fixed-dim": "#ffb690",
+                    "on-secondary-container": "#5c2400",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#eff4ff",
+                    "primary-container": "#22c55e",
+                    "surface-bright": "#f8f9ff",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "surface-dim": "#cbdbf5",
+                    "on-primary-fixed": "#002109",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#ffdbca",
+                    "on-primary-fixed-variant": "#005321",
+                    "inverse-surface": "#213145",
+                    "on-background": "#0b1c30",
+                    "tertiary-container": "#b89cff",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-tint": "#006e2f",
+                    "surface-container-highest": "#d3e4fe",
+                    "background": "#f8f9ff",
+                    "tertiary": "#6d3bd7",
+                    "error": "#ba1a1a",
+                    "surface-container": "#e5eeff",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#bccbb9",
+                    "on-tertiary-fixed": "#23005c",
+                    "on-secondary-fixed-variant": "#783200",
+                    "secondary": "#9d4300",
+                    "secondary-container": "#fd761a",
+                    "primary": "#006e2f",
+                    "on-surface": "#0b1c30",
+                    "inverse-primary": "#4ae176",
+                    "on-secondary-fixed": "#341100",
+                    "on-primary-container": "#004b1e",
+                    "primary-fixed": "#6bff8f",
+                    "surface-variant": "#d3e4fe",
+                    "surface": "#f8f9ff",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#4ae176",
+                    "on-surface-variant": "#3d4a3d",
+                    "on-primary": "#ffffff",
+                    "outline": "#6d7b6c",
+                    "tertiary-fixed": "#e9ddff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "sm": "12px",
+                    "lg": "24px",
+                    "container-padding": "20px",
+                    "xs": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .progress-ring-bg { transform: rotate(-90deg); transform-origin: 50% 50%; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-sm flex justify-between items-center px-container-padding h-16">
+<div class="flex items-center gap-3 active:scale-95 transition-transform duration-200">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden border border-outline-variant">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A professional studio portrait of a healthy young adult with a friendly expression, set against a soft, neutral-colored minimalist background. The lighting is bright and even, reflecting a clean and modern high-tech wellness aesthetic consistent with a premium AI health application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZX9THhjwDg5x_QSKoQZncpQTuSwrVhr2qScYJCgKzaYvJPMasshmlue-pEcN0nhDDq4GXgqXS6eXdjryZnFgmMnfknHnEUK_OKNvAD_WoYtkydnvBCz4GkSawGT4Gp9-z9xRymrVQUENtTIsLNtNxBFkMscyl6ecxKXo0swkzv86wieg70JOqg6a7FpSdZBQhYJsChMPq40kqAcjMZHXEVyg_B2fonlb95djUb2ExGPHbvSGfZTmb597hfMoI0FWwfKfkoePZcU0V"/>
+</div>
+<span class="font-display-lg text-headline-md text-primary tracking-tight">VitalAI</span>
+</div>
+<button class="text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<main class="mt-20 px-container-padding space-y-lg">
+<!-- Calorie & Macro Dashboard Bento Section -->
+<section class="bg-surface-container-lowest rounded-[24px] p-md shadow-sm border border-surface-container">
+<div class="flex flex-col items-center justify-center py-xl">
+<!-- Large Calorie Progress Ring -->
+<div class="relative w-64 h-64 flex items-center justify-center">
+<svg class="w-full h-full progress-ring-bg">
+<circle class="text-primary/10" cx="128" cy="128" fill="transparent" r="116" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary-container" cx="128" cy="128" fill="transparent" r="116" stroke="currentColor" stroke-dasharray="728" stroke-dashoffset="250" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-display-lg text-display-lg text-on-surface">1,420</span>
+<span class="font-label-md text-on-surface-variant">/ 2,200 kcal</span>
+</div>
+</div>
+<!-- Macro Rings Grid -->
+<div class="grid grid-cols-3 gap-lg w-full mt-xl">
+<div class="flex flex-col items-center gap-xs">
+<div class="relative w-16 h-16">
+<svg class="w-full h-full progress-ring-bg">
+<circle class="text-primary/10" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-primary" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="176" stroke-dashoffset="40" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+<span class="absolute inset-0 flex items-center justify-center font-label-sm text-on-surface">75%</span>
+</div>
+<span class="font-label-md text-on-surface">Protein</span>
+</div>
+<div class="flex flex-col items-center gap-xs">
+<div class="relative w-16 h-16">
+<svg class="w-full h-full progress-ring-bg">
+<circle class="text-secondary/10" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-secondary-container" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="176" stroke-dashoffset="80" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+<span class="absolute inset-0 flex items-center justify-center font-label-sm text-on-surface">50%</span>
+</div>
+<span class="font-label-md text-on-surface">Carbs</span>
+</div>
+<div class="flex flex-col items-center gap-xs">
+<div class="relative w-16 h-16">
+<svg class="w-full h-full progress-ring-bg">
+<circle class="text-tertiary/10" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-tertiary-container" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="176" stroke-dashoffset="120" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+<span class="absolute inset-0 flex items-center justify-center font-label-sm text-on-surface">30%</span>
+</div>
+<span class="font-label-md text-on-surface">Fat</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Current Streak Card -->
+<section class="bg-gradient-to-br from-tertiary to-on-tertiary-fixed-variant rounded-[24px] p-md shadow-sm relative overflow-hidden">
+<div class="flex justify-between items-center relative z-10">
+<div class="space-y-1">
+<p class="font-label-md text-white/80">Current Streak</p>
+<h3 class="font-headline-md text-white">12 Days 🔥</h3>
+</div>
+<div class="bg-white/20 backdrop-blur-md rounded-xl px-3 py-1 text-white font-label-sm">
+                    Keep it up!
+                </div>
+</div>
+<!-- Decorative circle -->
+<div class="absolute -right-8 -bottom-8 w-24 h-24 bg-white/10 rounded-full"></div>
+</section>
+<!-- Today's Meals Section -->
+<section class="space-y-md">
+<div class="flex justify-between items-center">
+<h2 class="font-headline-md text-on-surface">Today’s Meals</h2>
+<button class="text-primary font-label-md">View All</button>
+</div>
+<div class="space-y-sm">
+<!-- Breakfast Card -->
+<div class="flex items-center justify-between bg-surface-container-lowest p-md rounded-[24px] shadow-sm border border-surface-container hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden">
+<img alt="Breakfast" class="w-full h-full object-cover" data-alt="A top-down aesthetic food photography shot of a healthy acai bowl with fresh blueberries, sliced bananas, and granola on a clean white table. The lighting is soft and morning-like, emphasizing fresh textures and vibrant colors in a minimalist wellness style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5piz2kNydbap1At8gOSL15Tqy0gLm1Svk8sLPlK_LjemSObG-qlTKke6uiF68Pi98oiyPmOWDPoxNDjGP98DMy8udF8CL_mPyH4us0FS1nhtb3CNeIpxGnawqYFob9aHmahtAqpGQuRnQ8clrLP2-kdB1iZSqsP6_zNJksPN_mHMkC8Ro4Vj00vH4QjGJHQ_Hnlt1dVbH-3-SECVkCOWP_7K1IoREuvCOhHxJJht8FVMxWI5nCxBy41GN3qRBFrXQ1PpWQV5fBOLT"/>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Avocado Toast &amp; Egg</p>
+<p class="font-label-sm text-on-surface-variant">Breakfast • 8:30 AM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-md text-on-surface">420 kcal</p>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">chevron_right</span>
+</div>
+</div>
+<!-- Lunch Card -->
+<div class="flex items-center justify-between bg-surface-container-lowest p-md rounded-[24px] shadow-sm border border-surface-container hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden">
+<img alt="Lunch" class="w-full h-full object-cover" data-alt="A professional flat-lay photograph of a grilled chicken salad with quinoa, kale, and cherry tomatoes in a clean ceramic bowl. High-end lighting creates soft shadows and highlights the vibrant green and red ingredients, fitting a premium nutritional app aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzVwxN1jBQcAu2vRBn9K08xjAwYpaVt-cmz_te6Pln5Cg5AnvJpqy7wPzdoBtbQEPa6KX1GeYkDJewYuMOeg_HzansQ_Zq7UEoKg3yQCv68HkhW5iuFv1WXQIeWj1qnyd5EaCGgrtK-YWgJXhL7EvP4VLsYu-he0AMec7p7wnxhQLPP0_mOizWjns2ZEOL85HYlIXAewpAWRIjm9lnVJDRRvn4XqSmrv8F7IYgcq4ZKv33s1WvovCajykZMnl1MX1QdpxIRjQOQziV"/>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Quinoa Chicken Salad</p>
+<p class="font-label-sm text-on-surface-variant">Lunch • 1:15 PM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-md text-on-surface">680 kcal</p>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50">
+<button class="bg-gradient-to-r from-tertiary to-tertiary-container w-16 h-16 rounded-full shadow-lg flex items-center justify-center text-white active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+</button>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-40 rounded-t-xl bg-surface/80 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.04)] flex justify-around items-center px-4 pb-safe pt-2 h-20">
+<button class="flex flex-col items-center justify-center text-primary bg-primary-container/20 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-sm text-label-sm">Log</span>
+</button>
+<!-- Center Gap for FAB -->
+<div class="w-16"></div>
+<button class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-sm text-label-sm">Trends</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+</body></html>

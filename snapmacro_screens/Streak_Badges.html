@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VitalAI - Streaks &amp; Goals</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#4e02b8",
+                    "secondary-fixed-dim": "#ffb690",
+                    "on-secondary-container": "#5c2400",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#eff4ff",
+                    "primary-container": "#22c55e",
+                    "surface-bright": "#f8f9ff",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "surface-dim": "#cbdbf5",
+                    "on-primary-fixed": "#002109",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#ffdbca",
+                    "on-primary-fixed-variant": "#005321",
+                    "inverse-surface": "#213145",
+                    "on-background": "#0b1c30",
+                    "tertiary-container": "#b89cff",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-tint": "#006e2f",
+                    "surface-container-highest": "#d3e4fe",
+                    "background": "#f8f9ff",
+                    "tertiary": "#6d3bd7",
+                    "error": "#ba1a1a",
+                    "surface-container": "#e5eeff",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#bccbb9",
+                    "on-tertiary-fixed": "#23005c",
+                    "on-secondary-fixed-variant": "#783200",
+                    "secondary": "#9d4300",
+                    "secondary-container": "#fd761a",
+                    "primary": "#006e2f",
+                    "on-surface": "#0b1c30",
+                    "inverse-primary": "#4ae176",
+                    "on-secondary-fixed": "#341100",
+                    "on-primary-container": "#004b1e",
+                    "primary-fixed": "#6bff8f",
+                    "surface-variant": "#d3e4fe",
+                    "surface": "#f8f9ff",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#4ae176",
+                    "on-surface-variant": "#3d4a3d",
+                    "on-primary": "#ffffff",
+                    "outline": "#6d7b6c",
+                    "tertiary-fixed": "#e9ddff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "sm": "12px",
+                    "lg": "24px",
+                    "container-padding": "20px",
+                    "xs": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { backdrop-filter: blur(20px); }
+        .streak-gradient { background: linear-gradient(135deg, #22c55e 0%, #006e2f 100%); }
+        .ai-badge-gradient { background: linear-gradient(135deg, #6d3bd7 0%, #b89cff 100%); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 w-full bg-surface/80 backdrop-blur-xl shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A high-end professional headshot of a young woman with a confident smile, captured in soft, natural studio lighting. The background is a clean, minimalist off-white, reflecting a premium health and wellness app aesthetic. The image uses a shallow depth of field to emphasize the subject's friendly and approachable demeanor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALE6CZXfLQP6zQ5LAQfdBPmOc9ec0cg0HKMAWi8J33XlW9MMDI5djq-4QGEvU9jfcp3K5A8aO9HAQpO1492BbEXswDHPbss1gQHl7ngOgyA-wjL2ZIaxQKOnJRWeWJgp4Js-_B_YtxKLtudQilmA-otXdjccgptBC8hLClYeGtBG0NvNmmKbM5Da8ntIPEAbsvgEJV74uiCRL07c-fERdZAAb3d-5ryBzVQJH8QlPcmTRa5lQCzQ5wpAhgJf80uDeHfI_OR9VI9tOP"/>
+</div>
+<span class="font-display-lg text-headline-md text-primary tracking-tight">VitalAI</span>
+</div>
+<button class="text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-[28px]">notifications</span>
+</button>
+</header>
+<main class="mt-20 px-container-padding space-y-lg">
+<!-- Consistency Card -->
+<section class="bg-surface-container-lowest rounded-[24px] p-md shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-surface-container overflow-hidden relative">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<div class="relative z-10 flex flex-col gap-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Weekly Performance</span>
+<div class="flex items-baseline gap-2">
+<h1 class="font-display-lg text-display-lg text-primary">92%</h1>
+<span class="font-headline-md text-headline-md text-on-surface-variant">Consistency</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[80%]">You're in the top 5% of users this week. Your morning routine is your strongest asset.</p>
+<div class="mt-4 flex gap-1 h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[92%] rounded-full"></div>
+</div>
+</div>
+</section>
+<!-- Streak Calendar Section -->
+<section class="bg-surface-container-lowest rounded-[24px] p-md shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-surface-container">
+<div class="flex justify-between items-center mb-md">
+<div class="flex items-center gap-2">
+<div class="streak-gradient p-2 rounded-xl text-white shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">14 Day Streak</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Personal Best: 21 days</p>
+</div>
+</div>
+<button class="text-primary font-label-md text-label-md">View History</button>
+</div>
+<!-- Calendar UI -->
+<div class="grid grid-cols-7 gap-xs text-center">
+<!-- Days Header -->
+<span class="font-label-sm text-label-sm text-on-surface-variant">M</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">T</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">W</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">T</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">F</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">S</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">S</span>
+<!-- Prev month padding -->
+<div class="h-10 w-10 flex items-center justify-center opacity-20">29</div>
+<div class="h-10 w-10 flex items-center justify-center opacity-20">30</div>
+<!-- Active Dates -->
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md bg-primary-container/10 text-primary-fixed-dim rounded-full">1</div>
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md bg-primary-container/10 text-primary-fixed-dim rounded-full">2</div>
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md bg-primary-container/10 text-primary-fixed-dim rounded-full">3</div>
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md bg-primary-container/10 text-primary-fixed-dim rounded-full">4</div>
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md bg-primary-container/10 text-primary-fixed-dim rounded-full">5</div>
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md bg-primary-container/10 text-primary-fixed-dim rounded-full">6</div>
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md bg-primary-container/10 text-primary-fixed-dim rounded-full">7</div>
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md bg-primary-container/10 text-primary-fixed-dim rounded-full">8</div>
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md bg-primary-container/10 text-primary-fixed-dim rounded-full">9</div>
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md bg-primary-container/10 text-primary-fixed-dim rounded-full">10</div>
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md bg-primary-container/10 text-primary-fixed-dim rounded-full">11</div>
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md bg-primary-container/10 text-primary-fixed-dim rounded-full">12</div>
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md bg-primary-container/20 text-primary border-2 border-primary-container rounded-full font-bold">13</div>
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md bg-primary-container text-white rounded-full font-bold shadow-md">14</div>
+<!-- Future dates -->
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md text-on-surface-variant opacity-40">15</div>
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md text-on-surface-variant opacity-40">16</div>
+<div class="h-10 w-10 flex items-center justify-center font-label-md text-label-md text-on-surface-variant opacity-40">17</div>
+</div>
+</section>
+<!-- Badge Bento Grid -->
+<section class="space-y-md">
+<h3 class="font-headline-md text-headline-md text-on-surface px-1">Goal Completion Badges</h3>
+<div class="grid grid-cols-2 gap-md">
+<!-- Achievement 1 -->
+<div class="bg-surface-container-lowest rounded-[24px] p-md flex flex-col items-center text-center shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-surface-container">
+<div class="w-16 h-16 rounded-full ai-badge-gradient flex items-center justify-center mb-sm shadow-lg">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface mb-xs">7-Day Streak</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Consistency Master</span>
+</div>
+<!-- Achievement 2 -->
+<div class="bg-surface-container-lowest rounded-[24px] p-md flex flex-col items-center text-center shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-surface-container">
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center mb-sm shadow-lg">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">nutrition</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface mb-xs">Macro Titan</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">100% Target Met</span>
+</div>
+<!-- Achievement 3 -->
+<div class="bg-surface-container-lowest rounded-[24px] p-md flex flex-col items-center text-center shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-surface-container">
+<div class="w-16 h-16 rounded-full bg-tertiary-container/30 flex items-center justify-center mb-sm border-2 border-dashed border-tertiary">
+<span class="material-symbols-outlined text-tertiary text-3xl">lock</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant mb-xs">30-Day Hero</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Locked</span>
+</div>
+<!-- Achievement 4 -->
+<div class="bg-surface-container-lowest rounded-[24px] p-md flex flex-col items-center text-center shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-surface-container">
+<div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center mb-sm shadow-lg">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface mb-xs">Fast Starter</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">First Log Before 8AM</span>
+</div>
+</div>
+</section>
+<!-- Motivational AI Card -->
+<section class="ai-badge-gradient rounded-[24px] p-md text-white shadow-xl overflow-hidden relative">
+<div class="absolute -bottom-8 -right-8 opacity-20 transform rotate-12">
+<span class="material-symbols-outlined text-[160px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="relative z-10 space-y-xs">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+<span class="font-label-md text-label-md uppercase tracking-widest opacity-90">AI Vitality Coach</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Keep it up, Sarah!</h3>
+<p class="font-body-md text-body-md opacity-90 leading-relaxed">
+                    You've logged your meals for 14 consecutive days. Based on your current trend, you're projected to reach your weight target 4 days earlier than expected.
+                </p>
+<div class="pt-2">
+<button class="bg-white text-tertiary font-label-md text-label-md px-lg py-3 rounded-xl active:scale-95 transition-transform">
+                        Personalized Plan Update
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/80 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.04)] flex justify-around items-center px-4 pb-safe pt-2 w-full h-20">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:bg-surface-container-high transition-colors px-3 py-1 cursor-pointer">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:bg-surface-container-high transition-colors px-3 py-1 cursor-pointer">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-sm text-label-sm">Log</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:bg-surface-container-high transition-colors px-3 py-1 cursor-pointer">
+<span class="material-symbols-outlined">photo_camera</span>
+<span class="font-label-sm text-label-sm">Scan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim bg-primary-container/20 rounded-xl px-3 py-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+<span class="font-label-sm text-label-sm">Trends</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:bg-surface-container-high transition-colors px-3 py-1 cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+</body></html>

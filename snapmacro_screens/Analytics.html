@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VitalAI - Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Hanken+Grotesk', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-container": "#4e02b8",
+                      "secondary-fixed-dim": "#ffb690",
+                      "on-secondary-container": "#5c2400",
+                      "on-tertiary-fixed-variant": "#5516be",
+                      "error-container": "#ffdad6",
+                      "surface-container-low": "#eff4ff",
+                      "primary-container": "#22c55e",
+                      "surface-bright": "#f8f9ff",
+                      "tertiary-fixed-dim": "#d0bcff",
+                      "surface-dim": "#cbdbf5",
+                      "on-primary-fixed": "#002109",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#ffdbca",
+                      "on-primary-fixed-variant": "#005321",
+                      "inverse-surface": "#213145",
+                      "on-background": "#0b1c30",
+                      "tertiary-container": "#b89cff",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "surface-tint": "#006e2f",
+                      "surface-container-highest": "#d3e4fe",
+                      "background": "#f8f9ff",
+                      "tertiary": "#6d3bd7",
+                      "error": "#ba1a1a",
+                      "surface-container": "#e5eeff",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-high": "#dce9ff",
+                      "on-secondary": "#ffffff",
+                      "outline-variant": "#bccbb9",
+                      "on-tertiary-fixed": "#23005c",
+                      "on-secondary-fixed-variant": "#783200",
+                      "secondary": "#9d4300",
+                      "secondary-container": "#fd761a",
+                      "primary": "#006e2f",
+                      "on-surface": "#0b1c30",
+                      "inverse-primary": "#4ae176",
+                      "on-secondary-fixed": "#341100",
+                      "on-primary-container": "#004b1e",
+                      "primary-fixed": "#6bff8f",
+                      "surface-variant": "#d3e4fe",
+                      "surface": "#f8f9ff",
+                      "on-error-container": "#93000a",
+                      "primary-fixed-dim": "#4ae176",
+                      "on-surface-variant": "#3d4a3d",
+                      "on-primary": "#ffffff",
+                      "outline": "#6d7b6c",
+                      "tertiary-fixed": "#e9ddff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "4px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "sm": "12px",
+                      "lg": "24px",
+                      "container-padding": "20px",
+                      "xs": "8px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Hanken Grotesk"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "label-md": ["Hanken Grotesk"],
+                      "label-sm": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-32">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl shadow-sm h-16 flex justify-between items-center px-container-padding">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional studio portrait of a confident health-conscious woman in her 30s with soft natural lighting. The image has a clean, airy aesthetic with a neutral-toned background that matches a premium wellness application. High-end photography style with shallow depth of field and sharp focus on the subject's friendly expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkI9zHAPrTmwyuHqoeXdL1wmWDbE8lxsYo-Q9g1NOvw7l2tzpZCEVK5aII05qJZfMDnNgvNUYS7gWlfJ63SmwStNTywE9B_SAZjXE1j2cE4mNiCCTsw8-sfS_RTQzS53jThAPKPlZmdOYc1UyH8GnSMKToxSmlmuCOwU156gpc8uxV1hxNTnzeaa5oVXW4ROU1xutRkbqo-b4M6G6IoT-2_Je5AypIaCC2xPVXWjQSVBHIYGxxi4oHzNHUd6HeVhh-4Uk9Wc3ggsxb"/>
+</div>
+<h1 class="font-display-lg text-headline-md text-primary tracking-tight">VitalAI</h1>
+</div>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-[28px]">notifications</span>
+</button>
+</header>
+<main class="mt-24 px-container-padding space-y-lg">
+<!-- Header Section -->
+<section>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Weekly Insights</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Your metabolic trends for Sep 12 - Sep 18</p>
+</section>
+<!-- Bento Grid: Key Stats -->
+<section class="grid grid-cols-2 gap-md">
+<!-- Average Calories Card -->
+<div class="bg-surface-container-lowest rounded-[24px] p-md shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant/20">
+<div class="flex items-center gap-xs mb-xs">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Daily Avg</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary">1,842</span>
+<span class="font-label-sm text-label-sm text-primary-container bg-primary/10 px-xs py-[2px] rounded-full self-start mt-xs">↓ 12% vs LW</span>
+</div>
+</div>
+<!-- Best Streak Card -->
+<div class="bg-surface-container-lowest rounded-[24px] p-md shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant/20">
+<div class="flex items-center gap-xs mb-xs">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Best Streak</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-secondary">14 Days</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Personal Record</span>
+</div>
+</div>
+</section>
+<!-- Calorie Bar Chart Section -->
+<section class="bg-surface-container-lowest rounded-[24px] p-lg shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant/20">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface">Calorie Consumption</h3>
+<span class="font-label-md text-label-md text-on-surface-variant">Daily Goal: 2,000</span>
+</div>
+<div class="h-48 flex items-end justify-between gap-xs px-2">
+<!-- Bar M -->
+<div class="flex-1 flex flex-col items-center gap-xs group">
+<div class="w-full bg-surface-container-high rounded-t-full h-32 transition-colors group-hover:bg-primary-container/40"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">M</span>
+</div>
+<!-- Bar T -->
+<div class="flex-1 flex flex-col items-center gap-xs group">
+<div class="w-full bg-primary-container rounded-t-full h-40"></div>
+<span class="font-label-sm text-label-sm text-primary font-bold">T</span>
+</div>
+<!-- Bar W -->
+<div class="flex-1 flex flex-col items-center gap-xs group">
+<div class="w-full bg-surface-container-high rounded-t-full h-24"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">W</span>
+</div>
+<!-- Bar T -->
+<div class="flex-1 flex flex-col items-center gap-xs group">
+<div class="w-full bg-surface-container-high rounded-t-full h-36"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">T</span>
+</div>
+<!-- Bar F -->
+<div class="flex-1 flex flex-col items-center gap-xs group">
+<div class="w-full bg-primary-container rounded-t-full h-28"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">F</span>
+</div>
+<!-- Bar S -->
+<div class="flex-1 flex flex-col items-center gap-xs group">
+<div class="w-full bg-surface-container-high rounded-t-full h-16"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">S</span>
+</div>
+<!-- Bar S -->
+<div class="flex-1 flex flex-col items-center gap-xs group">
+<div class="w-full bg-surface-container-high rounded-t-full h-20"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">S</span>
+</div>
+</div>
+</section>
+<!-- Macro Trends Line Chart Section -->
+<section class="bg-surface-container-lowest rounded-[24px] p-lg shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant/20 overflow-hidden relative">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-lg">Macro Balance</h3>
+<div class="flex gap-md mb-lg">
+<div class="flex items-center gap-xs">
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Protein</span>
+</div>
+<div class="flex items-center gap-xs">
+<div class="w-3 h-3 rounded-full bg-secondary-container"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Carbs</span>
+</div>
+<div class="flex items-center gap-xs">
+<div class="w-3 h-3 rounded-full bg-tertiary-container"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Fats</span>
+</div>
+</div>
+<!-- Stylized Line Chart Visual -->
+<div class="relative h-40 w-full mb-2">
+<!-- Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between opacity-5">
+<div class="border-t border-on-surface w-full"></div>
+<div class="border-t border-on-surface w-full"></div>
+<div class="border-t border-on-surface w-full"></div>
+</div>
+<!-- Line Paths (Visual Representation via SVG) -->
+<svg class="absolute inset-0 w-full h-full preserve-3d" viewbox="0 0 400 150">
+<!-- Protein Line -->
+<path class="opacity-80" d="M0 80 Q 50 40, 100 60 T 200 30 T 300 70 T 400 40" fill="none" stroke="#22c55e" stroke-linecap="round" stroke-width="3"></path>
+<!-- Carbs Line -->
+<path class="opacity-80" d="M0 100 Q 50 120, 100 90 T 200 110 T 300 80 T 400 95" fill="none" stroke="#fd761a" stroke-linecap="round" stroke-width="3"></path>
+<!-- Fats Line -->
+<path class="opacity-80" d="M0 130 Q 50 140, 100 125 T 200 135 T 300 115 T 400 120" fill="none" stroke="#b89cff" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<div class="flex justify-between px-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">Mon</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">Wed</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">Fri</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">Sun</span>
+</div>
+</section>
+<!-- Insight Card -->
+<section class="bg-tertiary-container/10 border border-tertiary-container/20 rounded-[24px] p-lg flex items-start gap-md">
+<div class="p-xs bg-tertiary/10 rounded-xl">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<div class="flex flex-col gap-xs">
+<h4 class="font-label-md text-label-md text-tertiary">AI Nutritionist</h4>
+<p class="font-body-md text-body-md text-on-surface">You've hit your protein target 6 days in a row! Increasing your protein intake on Wednesdays slightly improved your energy levels by 15% according to your log.</p>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Anchor -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.04)] rounded-t-xl px-4 pb-safe pt-2 flex justify-around items-center h-20">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-sm text-label-sm mt-1">Log</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">photo_camera</span>
+<span class="font-label-sm text-label-sm mt-1">Scan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim bg-primary-container/20 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+<span class="font-label-sm text-label-sm mt-1">Trends</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+</body></html>
