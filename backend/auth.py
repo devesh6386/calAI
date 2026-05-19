@@ -1,6 +1,6 @@
 # backend/auth.py
 from fastapi import Request, HTTPException, status
-from supabase.lib.auth_client import AuthException
+from supabase_auth.errors import AuthApiError
 from database import supabase
 import os
 from dotenv import load_dotenv
@@ -30,8 +30,13 @@ def get_current_user(request: Request) -> str:
                 detail="Invalid token",
             )
         return str(user.id)   # UUID string
-    except AuthException as exc:
+    except AuthApiError as exc:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail=f"Supabase auth error: {exc.message}",
+        )
+    except Exception as exc:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=f"Authentication failed: {str(exc)}",
         )
