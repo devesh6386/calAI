@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'theme/app_theme.dart';
 import 'screens/onboarding_screen.dart';
 import 'screens/goal_setup_screen.dart';
@@ -9,7 +10,12 @@ import 'screens/diary_screen.dart';
 import 'screens/analytics_screen.dart';
 import 'screens/streak_badges_screen.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+    url: 'https://gyfremsxvbbwvfmorstp.supabase.co',
+    anonKey: 'sb_publishable_iPo5oEw61ZjQTTMclykbGw_rlq-vvos',
+  );
   runApp(const SnapMacroApp());
 }
 
