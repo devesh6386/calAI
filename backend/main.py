@@ -1,23 +1,30 @@
+# backend/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import scan_routes, diary_routes, goal_routes, analytics_routes
+from routes import meals, goals, upload, summary
 
-app = FastAPI(title="SnapMacro API", description="AI Calorie Tracker Backend")
+app = FastAPI(
+    title="Calorie Tracker API",
+    description="FastAPI backend powered by Supabase",
+    version="0.1.0",
+)
 
-# Add CORS so Flutter frontend can access it
+# ---------- CORS ----------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Adjust in production
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-app.include_router(scan_routes.router, prefix="/api")
-app.include_router(diary_routes.router, prefix="/api/diary")
-app.include_router(goal_routes.router, prefix="/api/goals")
-app.include_router(analytics_routes.router, prefix="/api")
+# ---------- Include routers ----------
+app.include_router(meals.router, prefix="/meals", tags=["Meals"])
+app.include_router(goals.router, prefix="/goals", tags=["Goals"])
+app.include_router(upload.router, prefix="/upload", tags=["Upload"])
+app.include_router(summary.router, prefix="/summary", tags=["Summary"])
 
+# ---------- Health check ----------
 @app.get("/")
-def read_root():
-    return {"message": "Welcome to SnapMacro API!"}
+async def root():
+    return {"message": "Calorie Tracker API is running"}
