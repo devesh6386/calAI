@@ -22,7 +22,7 @@ async def upload_food_image(
             file_options={"content-type": file.content_type or "image/jpeg"}
         )
         project_url = supabase.supabase_url
-        public_url = f"{project_url}/storage/v1/object/public/food-images/{filename}"
+        public_url = supabase.storage.from_("food-images").get_public_url(filename)
         return {"image_url": public_url}
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))

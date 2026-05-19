@@ -46,7 +46,7 @@ async def get_today_meals(user_id: str = Depends(get_current_user)):
 # ---- DELETE /meals/{meal_id} ----
 @router.delete("/{meal_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_meal(
-    meal_id: int,
+    meal_id: str,
     user_id: str = Depends(get_current_user),
 ):
     # Verify ownership

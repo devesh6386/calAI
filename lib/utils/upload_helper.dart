@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -49,7 +50,7 @@ class UploadHelper {
       }
     } catch (e) {
       // Print warning and proceed to Supabase fallback
-      print('FastAPI upload failed, falling back to direct Supabase storage upload: $e');
+      debugPrint('FastAPI upload failed, falling back to direct Supabase storage upload: $e');
     }
 
     // 2. Fallback: Upload directly to Supabase storage

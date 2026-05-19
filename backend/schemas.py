@@ -15,7 +15,7 @@ class MealCreate(BaseModel):
     image_url: Optional[str] = None
 
 class MealResponse(BaseModel):
-    id: int
+    id: str
     user_id: str
     food_name: str
     calories: float
@@ -30,10 +30,9 @@ class MealResponse(BaseModel):
 # ---------- Goal ----------
 class GoalBase(BaseModel):
     daily_calories: float = Field(..., gt=0)
-    protein_goal: float = Field(..., gt=0)
-    carbs_goal: float = Field(..., gt=0)
-    fats_goal: float = Field(..., gt=0)
-    weight_goal: float = Field(..., gt=0, json_schema_extra={"description": "Target weight in kg"})
+    daily_protein: float = Field(..., gt=0)
+    daily_carbs: float = Field(..., gt=0)
+    daily_fats: float = Field(..., gt=0)
 
 class GoalCreate(GoalBase):
     pass

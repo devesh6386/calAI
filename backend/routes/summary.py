@@ -32,18 +32,18 @@ async def today_summary(user_id: str = Depends(get_current_user)):
         # Default fallback goals so it doesn't crash
         goal = {
             "daily_calories": 2000.0,
-            "protein_goal": 150.0,
-            "carbs_goal": 200.0,
-            "fats_goal": 70.0,
+            "daily_protein": 150.0,
+            "daily_carbs": 200.0,
+            "daily_fats": 65.0,
         }
     else:
         goal = goal_resp.data[0]
 
     # 3. Compute remaining values
-    remaining_cal = max(0.0, float(goal["daily_calories"]) - total_cal)
-    remaining_pro = max(0.0, float(goal["protein_goal"]) - total_pro)
-    remaining_carb = max(0.0, float(goal["carbs_goal"]) - total_carb)
-    remaining_fat = max(0.0, float(goal["fats_goal"]) - total_fat)
+    remaining_cal = max(0.0, float(goal.get("daily_calories", 2000.0)) - total_cal)
+    remaining_pro = max(0.0, float(goal.get("daily_protein", 150.0)) - total_pro)
+    remaining_carb = max(0.0, float(goal.get("daily_carbs", 200.0)) - total_carb)
+    remaining_fat = max(0.0, float(goal.get("daily_fats", 65.0)) - total_fat)
 
     return DailySummary(
         date=date.today(),
